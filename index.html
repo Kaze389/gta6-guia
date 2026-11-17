@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI en español: checklist, fecha, precio y guía rápida</title>
+<meta name="description" content="Guía de GTA VI en español: checklist con tu progreso guardado, regiones de Leonida, fecha de lanzamiento, ediciones, espacio necesario y preguntas frecuentes.">
+<style>
+:root{--bg:#0f0b1a;--card:#1a1430;--ink:#f4efff;--mute:#b6a9d6;--pink:#ff4fa3;--cyan:#3fe0ff;--line:#2e2550}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:40px 20px 28px;text-align:center;background:linear-gradient(160deg,#3a0f4d 0%,#0f0b1a 55%,#06303d 100%)}
+h1{margin:0 0 6px;font-size:clamp(1.8rem,6vw,2.8rem);letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mute);margin:0}
+#cuenta{margin-top:18px;font-size:1.15rem;font-weight:600;color:var(--cyan)}
+main{max-width:760px;margin:0 auto;padding:8px 16px 48px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 10px;margin:18px 0}
+h2{margin:0 0 12px;font-size:1.25rem}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:0 0 8px}
+dt{color:var(--mute)}dd{margin:0}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:4px 0 14px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--cyan));transition:width .3s}
+h3{font-size:1rem;margin:16px 0 6px;color:var(--pink)}
+label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);cursor:pointer}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--pink);flex:none;margin-top:2px}
+label.done span{color:var(--mute);text-decoration:line-through}
+.pend{color:var(--mute);font-style:italic;margin:4px 0 10px}
+details{border-bottom:1px solid var(--line);padding:9px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:6px 0 2px;color:var(--mute)}
+button{background:none;border:1px solid var(--line);color:var(--mute);border-radius:8px;padding:6px 10px;cursor:pointer;margin:8px 0}
+footer{text-align:center;color:var(--mute);font-size:.85rem;padding:0 16px 32px}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>GTA VI</span> en español</h1>
+  <p class="sub">Checklist con tu progreso guardado, datos clave y respuestas rápidas</p>
+  <div id="cuenta"></div>
+</header>
+<main>
+  <section>
+    <h2>Datos clave</h2>
+    <dl id="datos"></dl>
+  </section>
+
+  <section>
+    <h2>Tu checklist</h2>
+    <div id="pct" class="sub"></div>
+    <div class="bar"><i id="barra"></i></div>
+    <div id="lista"></div>
+    <button id="reset" type="button">Borrar mi progreso</button>
+  </section>
+
+  <section>
+    <h2>Preguntas frecuentes</h2>
+    <div id="faq"></div>
+  </section>
+</main>
+<footer>
+  <p>Actualizado: <span id="fecha"></span>. Solo publicamos datos confirmados por Rockstar o por varias fuentes fiables.</p>
+  <p>Web de fans, sin relación con Rockstar Games ni Take-Two. GTA y Grand Theft Auto son marcas de sus propietarios.</p>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  var G = window.GUIA, KEY = "gta6-guia-progreso";
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  // Cuenta atrás
+  var fin = new Date(G.lanzamiento).getTime(), cuenta = document.getElementById("cuenta");
+  function tick(){
+    var d = fin - Date.now();
+    if (d <= 0){ cuenta.textContent = "¡Ya disponible en PS5 y Xbox Series X|S!"; return; }
+    var h = Math.floor(d/36e5), m = Math.floor(d%36e5/6e4), s = Math.floor(d%6e4/1e3);
+    cuenta.textContent = "Sale en " + (h>=24 ? Math.floor(h/24)+" d "+(h%24)+" h" : h+" h "+m+" min "+s+" s");
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+  document.getElementById("fecha").textContent = G.actualizado;
+  document.getElementById("datos").innerHTML = G.datos.map(function(d){
+    return "<dt>"+esc(d.k)+"</dt><dd>"+esc(d.v)+"</dd>";
+  }).join("");
+
+  // Progreso (guardado en este navegador)
+  var prog = {};
+  try { prog = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) {}
+  function guardar(){ try { localStorage.setItem(KEY, JSON.stringify(prog)); } catch(e) {} }
+
+  var lista = document.getElementById("lista");
+  function pintar(){
+    var total = 0, hechos = 0;
+    lista.innerHTML = G.checklist.map(function(c){
+      var h = "<h3>"+esc(c.cat)+"</h3>";
+      if (!c.items.length) return h + '<p class="pend">'+(c.pendiente ? "Lo añadiremos en cuanto se confirmen tras el lanzamiento." : "")+"</p>";
+      return h + c.items.map(function(it){
+        total++; var ok = !!prog[it.id]; if (ok) hechos++;
+        return '<label class="'+(ok?"done":"")+'"><input type="checkbox" data-id="'+esc(it.id)+'"'+(ok?" checked":"")+'><span>'+esc(it.t)+(it.nota?" — "+esc(it.nota):"")+"</span></label>";
+      }).join("");
+    }).join("");
+    var pct = total ? Math.round(hechos*100/total) : 0;
+    document.getElementById("pct").textContent = hechos+" de "+total+" completados ("+pct+" %)";
+    document.getElementById("barra").style.width = pct+"%";
+  }
+  lista.addEventListener("change", function(e){
+    var id = e.target.getAttribute("data-id"); if (!id) return;
+    if (e.target.checked) prog[id] = 1; else delete prog[id];
+    guardar(); pintar();
+  });
+  document.getElementById("reset").addEventListener("click", function(){ prog = {}; guardar(); pintar(); });
+  pintar();
+
+  document.getElementById("faq").innerHTML = G.faq.map(function(f){
+    return "<details><summary>"+esc(f.q)+"</summary><p>"+esc(f.a)+"</p></details>";
+  }).join("");
+})();
+</script>
+</body>
+</html>

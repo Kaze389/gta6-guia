@@ -1,5 +1,12 @@
 # Cambios
 
+## 2026-11-18 (3)
+- Nuevas respuestas: «No tengo espacio para GTA 6: ¿qué hago?» (cuánto ocupa, cómo liberar espacio en PS5 y Xbox, requisitos oficiales de SSD M.2 y tarjetas de expansión, sin recomendar modelos) y «¿Cuáles son los requisitos y plataformas de GTA 6?».
+- FAQ: nueva pregunta «¿Sale en PS4 o Xbox One?»; «¿Cuánto ocupa?» corregida y enlazada a su respuesta.
+- Correcciones con la página de soporte de Rockstar: la precarga empezó el 10 de noviembre (no el 12) y el espacio es de hasta 212 GB según la consola (no solo en PS5).
+- Etiqueta de verificación de Google Search Console (`GSC_VERIFICACION`, ahora «PENDIENTE») e instrucciones para GoatCounter y Search Console en el README.
+- Fuentes: Rockstar Support (precarga), PlayStation (SSD M.2 y almacenamiento USB), Xbox Wire y Seagate (almacenamiento en Xbox), GTABase, Thurrott, Notebookcheck y KitGuru (30 FPS, PS5 Pro, Xbox Cloud Gaming, Remote Play).
+
 ## 2026-11-18 (2)
 - La web pasa a generarse con `node build.js` desde `data.js`: inicio, /checklist/, /faq/ y /respuestas/ (una página por pregunta), más 404, sitemap.xml y robots.txt.
 - SEO: title y description por página, canonical, Open Graph con imagen propia (`og.png`), schema WebSite/FAQPage/Article/BreadcrumbList y enlaces entre respuestas relacionadas.

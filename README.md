@@ -63,12 +63,30 @@ Para pasar a un dominio propio (ejemplo: `guiagta6.es`):
 
 Las URLs antiguas de `github.io` redirigen solas al dominio propio.
 
-## Analítica (GoatCounter)
+## Analítica (GoatCounter, gratis y sin cookies)
 
-Las visitas se cuentan con [GoatCounter](https://www.goatcounter.com): sin cookies y sin datos personales, así que no hace falta banner de cookies. El código está en la constante `GOATCOUNTER` de `build.js` (`gta6-guia`), que envía los datos a `https://gta6-guia.goatcounter.com`.
+Las visitas se cuentan con [GoatCounter](https://www.goatcounter.com): sin cookies y sin datos personales, así que no hace falta banner de cookies. Es gratis para un uso público razonable (una web personal como esta encaja). El código está en la constante `GOATCOUNTER` de `build.js` (`gta6-guia`), que envía los datos a `https://gta6-guia.goatcounter.com`.
 
-Para que funcione hay que crear la cuenta (gratis) en goatcounter.com con el código **gta6-guia**. Si ese código ya estuviera cogido, elige otro y cámbialo en `GOATCOUNTER`. Las visitas desde `localhost` no se cuentan. Para desactivarla, deja `GOATCOUNTER = ""`.
+Crear la cuenta (una vez):
+1. Entra en https://www.goatcounter.com y pulsa **Sign up**.
+2. En el código del sitio escribe **gta6-guia** (será `gta6-guia.goatcounter.com`). Rellena tu email y una contraseña. No pide tarjeta.
+3. Confirma el email. A partir de ahí, cada visita a la web aparece en el panel `https://gta6-guia.goatcounter.com`.
+4. Si `gta6-guia` ya estuviera cogido, elige otro código, cámbialo en `GOATCOUNTER`, ejecuta `node build.js` y haz commit.
+
+Las visitas desde `localhost` no se cuentan. Para desactivar la analítica, deja `GOATCOUNTER = ""`.
+
+## Google Search Console (gratis)
+
+La página de inicio lleva la etiqueta `<meta name="google-site-verification" content="PENDIENTE">`. El valor sale de la constante `GSC_VERIFICACION` de `build.js`.
+
+1. Entra en https://search.google.com/search-console con tu cuenta de Google y pulsa **Añadir propiedad**.
+2. Elige **Prefijo de la URL** (no "Dominio": en `github.io` no puedes tocar el DNS) y escribe `https://kaze389.github.io/gta6-guia/`.
+3. En los métodos de verificación, abre **Etiqueta HTML** y copia solo el valor de `content="..."` (una cadena larga de letras y números).
+4. Pégalo en `GSC_VERIFICACION` (en lugar de `PENDIENTE`), ejecuta `node build.js`, haz commit y push, y espera a que GitHub Pages publique (1-2 minutos).
+5. Vuelve a Search Console y pulsa **Verificar**. No quites la etiqueta después: Google la comprueba de vez en cuando.
+6. Envía el sitemap: menú **Sitemaps** → escribe `sitemap.xml` → **Enviar**. Ahí verás cuántas URLs ha descubierto y, con los días, en **Rendimiento** verás las búsquedas por las que apareces (las mejores pistas para nuevas respuestas).
+7. Para acelerar una página nueva: **Inspección de URLs** → pega la URL → **Solicitar indexación**.
 
 ## SEO: notas
 - Cada página tiene su `title`, `description`, canonical, Open Graph y datos estructurados (WebSite, FAQPage, Article, BreadcrumbList).
-- Mientras la web esté en `kaze389.github.io/gta6-guia/`, Google no lee `robots.txt` (solo lo busca en la raíz del dominio). Envía el sitemap a mano en [Google Search Console](https://search.google.com/search-console) con una propiedad de tipo "Prefijo de la URL": `https://kaze389.github.io/gta6-guia/sitemap.xml`. Con dominio propio, `robots.txt` ya funciona.
+- Mientras la web esté en `kaze389.github.io/gta6-guia/`, Google no lee `robots.txt` (solo lo busca en la raíz del dominio): por eso el sitemap se envía a mano en Search Console. Con dominio propio, `robots.txt` ya funciona (y habrá que crear una propiedad nueva en Search Console para el dominio).

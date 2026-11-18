@@ -13,6 +13,9 @@ const SITE_URL = "https://kaze389.github.io/gta6-guia/";
 // Código de GoatCounter (analítica sin cookies): cuenta en https://gta6-guia.goatcounter.com
 // Déjalo vacío ("") para desactivar la analítica.
 const GOATCOUNTER = "gta6-guia";
+// Código de verificación de Google Search Console (método "Etiqueta HTML"): pega aquí solo el
+// valor de content="..." que te da Google. Se añade en la página de inicio. "" para quitarlo.
+const GSC_VERIFICACION = "PENDIENTE";
 const SITE_NAME = "GTA VI en español";
 // ===================================================
 
@@ -201,6 +204,9 @@ function pagina(G, o) {
         `<meta property="article:modified_time" content="${o.modificado}">`
       );
     }
+  }
+  if (o.ruta === "" && GSC_VERIFICACION) {
+    meta.push(`<meta name="google-site-verification" content="${esc(GSC_VERIFICACION)}">`);
   }
   if (o.schema) meta.push(jsonld(o.schema));
 
@@ -477,7 +483,7 @@ function paginaRespuesta(G, r) {
     <p class="migas"><a href="../../">Inicio</a> › <a href="../">Respuestas</a></p>
     <p class="corta"><strong>Respuesta corta:</strong> ${esc(r.respuesta)}</p>
     <h2>Explicación</h2>
-${parrafos(r.explicacion).map((p) => `    <p>${esc(p)}</p>`).join("\n")}
+${parrafos(r.explicacion).map((p) => `    <p>${esc(p).replace(/^([^:.]{3,45}):\s/, "<strong>$1:</strong> ")}</p>`).join("\n")}
     <h2>Fuentes</h2>
     <ul class="fuentes">
 ${r.fuentes.map((f) => `      <li><a href="${esc(f.url)}" rel="noopener">${esc(f.nombre)}</a></li>`).join("\n")}

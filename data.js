@@ -9,8 +9,8 @@ window.GUIA = {
     { k: "Lanzamiento", v: "19 de noviembre de 2026" },
     { k: "Plataformas", v: "PS5 y Xbox Series X|S (PC sin anunciar)" },
     { k: "Ediciones", v: "Standard (79,99 $) y Ultimate (99,99 $, solo digital)" },
-    { k: "Precarga", v: "Disponible desde el 12 de noviembre" },
-    { k: "Espacio en PS5", v: "Mínimo 212 GB libres" },
+    { k: "Precarga", v: "Disponible desde el 10 de noviembre" },
+    { k: "Espacio necesario", v: "Hasta 212 GB libres, según la consola" },
     { k: "Protagonistas", v: "Jason Duval y Lucia Caminos" },
     { k: "Ambientación", v: "Estado de Leonida (inspirado en Florida), con Vice City" }
   ],
@@ -32,7 +32,7 @@ window.GUIA = {
     {
       cat: "Antes de empezar",
       items: [
-        { id: "pre-espacio", t: "Liberar espacio (212 GB mínimo en PS5)" },
+        { id: "pre-espacio", t: "Liberar espacio (hasta 212 GB, según la consola)" },
         { id: "pre-precarga", t: "Precargar el juego" },
         { id: "pre-bonus", t: "Canjear el Vintage Vice City Pack (bonus de reserva)" }
       ]
@@ -47,7 +47,8 @@ window.GUIA = {
   faq: [
     { q: "¿Cuándo sale GTA VI?", a: "El jueves 19 de noviembre de 2026 en PS5 y Xbox Series X|S." },
     { q: "¿Sale en PC?", a: "Rockstar no ha anunciado versión de PC por ahora.", ver: "gta-6-sale-en-pc" },
-    { q: "¿Cuánto ocupa?", a: "En PS5 se piden al menos 212 GB libres. En Xbox, consulta la ficha de la tienda en tu consola." },
+    { q: "¿Sale en PS4 o Xbox One?", a: "No hay versión para PS4 ni Xbox One. En Xbox One solo se podrá jugar en streaming con Xbox Cloud Gaming, con los ajustes gráficos de Xbox Series S.", ver: "requisitos-y-plataformas-gta-6" },
+    { q: "¿Cuánto ocupa?", a: "Rockstar pide hasta 212 GB libres, según la consola (PS5 o Xbox Series X|S).", ver: "no-tengo-espacio-para-gta-6" },
     { q: "¿Qué edición compro?", a: "La Standard es el juego completo. La Ultimate (solo digital) añade vehículos, armas y ropa extra. Puedes pasar de Standard a Ultimate más adelante con una mejora." },
     { q: "¿La edición física trae disco?", a: "No: la versión física es un código de descarga dentro de la caja." }
   ],
@@ -65,6 +66,51 @@ window.GUIA = {
   //   titulo       (opcional) <title> distinto de la pregunta.
   respuestas: [
     {
+      slug: "no-tengo-espacio-para-gta-6",
+      pregunta: "No tengo espacio para GTA 6: ¿qué hago?",
+      titulo: "No tengo espacio para GTA 6: cuánto ocupa y cómo liberar espacio",
+      respuesta: "GTA VI necesita hasta 212 GB libres, según la consola. Borra lo que no juegues, mueve juegos a un disco USB (sirve para guardarlos, no para jugarlos) o amplía el almacenamiento interno: un SSD M.2 compatible en PS5 o una tarjeta de expansión oficial en Xbox Series X|S.",
+      explicacion: [
+        "Cuánto ocupa: según la página de soporte de Rockstar, la precarga pide hasta 212 GB de espacio disponible, y la cifra exacta depende de la consola. Comprar la edición en caja no te ahorra nada: dentro hay un código, no un disco, así que el juego se descarga entero igual. Deja además algo de margen libre, porque los parches también ocupan.",
+        "Cuánto espacio tienes de verdad: una PS5 original de 825 GB deja unos 667 GB útiles y una Xbox Series S de 512 GB, unos 364 GB. Es decir, GTA VI se queda con alrededor de un tercio del disco en la PS5 original y con más de la mitad en la Series S. Revisa lo que tienes instalado en Ajustes > Almacenamiento (PS5) o en Configuración > Sistema > Dispositivos de almacenamiento (Xbox).",
+        "Opción 1, borrar lo que no juegas: es lo más rápido y no cuesta nada. Por lo general, borrar un juego no elimina tus partidas guardadas: en PS5 se quedan en la consola (y en la nube si tienes PS Plus) y en Xbox se sincronizan en la nube, así que al reinstalarlo sigues donde lo dejaste.",
+        "Opción 2, mover juegos a un disco USB: las dos consolas admiten un disco externo como almacén. Mueves ahí los juegos que no estás usando y los recuperas después, más rápido que volver a descargarlos. Pero los juegos de PS5 y los optimizados para Xbox Series X|S no se pueden jugar desde el USB: hay que devolverlos al almacenamiento interno. En PS5 el disco debe ser SuperSpeed USB y de entre 250 GB y 8 TB; en Xbox, USB 3.0 o superior y de 128 GB como mínimo.",
+        "Opción 3, ampliar el almacenamiento donde sí se juega: en PS5, la ranura de expansión acepta un SSD M.2 que cumpla los requisitos de Sony. Tiene que ser NVMe con interfaz PCI-Express Gen4 x4 (Key M), de 250 GB a 8 TB, en formato 2230, 2242, 2260, 2280 o 22110, y con disipador o estructura de refrigeración (ancho máximo de 25 mm, disipador incluido). Sony recomienda una lectura secuencial de 5.500 MB/s o más y pide actualizar el software de la consola antes de instalarlo. En Xbox Series X|S, los juegos optimizados solo se juegan desde el SSD interno o desde una tarjeta de expansión de almacenamiento oficial con licencia para Xbox; un SSD USB normal no vale para jugarlos.",
+        "No recomendamos modelos concretos: antes de comprar, comprueba en la ficha del fabricante que cumple todos estos requisitos."
+      ],
+      fecha: "2026-11-18",
+      fuentes: [
+        { nombre: "Rockstar Support: preguntas frecuentes sobre la precarga de GTA VI", url: "https://support.rockstargames.com/articles/7nPqOA2uCbpEQHXx7KVrYd" },
+        { nombre: "PlayStation: cómo agregar un SSD M.2 a una consola PS5", url: "https://www.playstation.com/es-es/support/hardware/ps5-install-m2-ssd/" },
+        { nombre: "PlayStation: almacenamiento adicional para PS5 y PS4", url: "https://www.playstation.com/es-es/accessories/external-storage/" },
+        { nombre: "Xbox Wire: opciones de almacenamiento de Xbox Series X|S", url: "https://news.xbox.com/en-us/2020/09/24/xbox-series-x-and-xbox-series-s-custom-storage-solution-primer/" },
+        { nombre: "Seagate: usar un disco USB externo con Xbox Series X|S", url: "https://www.seagate.com/in/en/support/kb/using-an-external-usb-drive-with-an-xbox-series-x-or-s/" },
+        { nombre: "GTABase: guía de preparación (espacio útil de Xbox Series S)", url: "https://www.gtabase.com/articles/gta-6/gta-6-launch-prep-guide-pre-load-date-storage-editions" }
+      ],
+      relacionadas: ["requisitos-y-plataformas-gta-6", "a-que-hora-sale-gta-6-en-espana"]
+    },
+    {
+      slug: "requisitos-y-plataformas-gta-6",
+      pregunta: "¿Cuáles son los requisitos y plataformas de GTA 6?",
+      titulo: "Requisitos y plataformas de GTA 6: consolas, 30 FPS y espacio",
+      respuesta: "GTA VI sale en PS5 (incluida PS5 Pro) y Xbox Series X|S. No hay versión de PC, PS4 ni Xbox One, aunque en Xbox One se podrá jugar en streaming con Xbox Cloud Gaming. Necesitas hasta 212 GB libres y el juego apunta a 30 FPS en todas las consolas.",
+      explicacion: [
+        "Consolas: es un juego solo de la generación actual. Funciona en cualquier PS5, incluida la PS5 Pro, y en Xbox Series X y Series S. Rockstar no ha anunciado versión de PC.",
+        "Rendimiento: Rockstar ha confirmado que GTA VI apunta a 30 FPS en PS5, PS5 Pro y Xbox Series X|S, sin modo de 60 FPS anunciado. Tampoco ha publicado la resolución de cada consola ni ha detallado qué recortes gráficos tiene la Series S.",
+        "Diferencias entre consolas: en PS5 Pro la imagen es más nítida gracias a PSSR (el reescalado de Sony) y hay sombras con trazado de rayos que no tiene ninguna otra consola. Todas las PS5 aprovechan la vibración háptica del DualSense, el audio 3D Tempest y cargas más rápidas.",
+        "Jugar sin estar delante de la consola: GTA VI admite Remote Play en PlayStation y en Xbox. Además, se podrá jugar en streaming con Xbox Cloud Gaming en Xbox Series X|S y Xbox One, siempre con los ajustes gráficos de Xbox Series S; la calidad dependerá de tu conexión.",
+        "Espacio: la precarga necesita hasta 212 GB libres según la consola, y la edición en caja también se descarga entera porque trae un código, no un disco. Si vas justo de espacio, mira cómo liberarlo en la respuesta relacionada."
+      ],
+      fecha: "2026-11-18",
+      fuentes: [
+        { nombre: "Rockstar Support: preguntas frecuentes sobre la precarga de GTA VI", url: "https://support.rockstargames.com/articles/7nPqOA2uCbpEQHXx7KVrYd" },
+        { nombre: "Thurrott: Rockstar detalla las mejoras de PS5 Pro y Xbox Cloud Gaming", url: "https://www.thurrott.com/?p=343700" },
+        { nombre: "Notebookcheck: objetivos de rendimiento de GTA 6 en consola", url: "https://notebookcheck.net/Rockstar-reveals-GTA-6-console-performance-targets-and-PS5-Pro-upgrades.1447121.0.html" },
+        { nombre: "KitGuru: 30 FPS, PS5 Pro y Remote Play", url: "https://www.kitguru.net/?p=751421" }
+      ],
+      relacionadas: ["no-tengo-espacio-para-gta-6", "gta-6-sale-en-pc"]
+    },
+    {
       slug: "a-que-hora-sale-gta-6-en-espana",
       pregunta: "¿A qué hora sale GTA 6 en España?",
       titulo: "¿A qué hora sale GTA 6 en España? Hora exacta y Canarias",
@@ -79,7 +125,7 @@ window.GUIA = {
         { nombre: "Vandal: GTA 6 confirma la hora exacta de lanzamiento", url: "https://vandal.elespanol.com/noticia/2026250032/gta-6-confirma-la-hora-exacta-para-su-lanzamiento-en-espana-y-el-resto-del-mundo/" },
         { nombre: "Hipertextual: horario de GTA 6 según la PS Store", url: "https://hipertextual.com/videojuegos/ya-es-oficial-gta-6-no-tendra-un-debut-simultaneo-en-todo-el-mundo-te-contamos-a-que-hora-podras-jugar/" }
       ],
-      relacionadas: ["gta-6-sale-en-pc"]
+      relacionadas: ["no-tengo-espacio-para-gta-6", "gta-6-sale-en-pc"]
     },
     {
       slug: "gta-6-sale-en-pc",
@@ -97,7 +143,7 @@ window.GUIA = {
         { nombre: "tbreak: la web oficial solo lista PS5 y Xbox Series X|S", url: "https://tbreak.com/gta-6-pc-release-sooner-than-expected/" },
         { nombre: "Gfinity: historial de lanzamientos de Rockstar en PC", url: "https://www.gfinityesports.com/article/will-gta-6-be-on-pc-release-date-rockstar-news-and-2027-rumors" }
       ],
-      relacionadas: ["a-que-hora-sale-gta-6-en-espana"]
+      relacionadas: ["requisitos-y-plataformas-gta-6", "a-que-hora-sale-gta-6-en-espana"]
     }
   ]
 };

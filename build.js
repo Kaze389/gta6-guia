@@ -483,7 +483,7 @@ function paginaRespuesta(G, r) {
     <p class="migas"><a href="../../">Inicio</a> › <a href="../">Respuestas</a></p>
     <p class="corta"><strong>Respuesta corta:</strong> ${esc(r.respuesta)}</p>
     <h2>Explicación</h2>
-${parrafos(r.explicacion).map((p) => `    <p>${esc(p).replace(/^([^:.]{3,45}):\s/, "<strong>$1:</strong> ")}</p>`).join("\n")}
+${parrafos(r.explicacion).map((p) => `    <p>${esc(p).replace(/^([^:.]{3,60}):\s/, "<strong>$1:</strong> ")}</p>`).join("\n")}
     <h2>Fuentes</h2>
     <ul class="fuentes">
 ${r.fuentes.map((f) => `      <li><a href="${esc(f.url)}" rel="noopener">${esc(f.nombre)}</a></li>`).join("\n")}

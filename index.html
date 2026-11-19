@@ -84,10 +84,11 @@ footer a{color:var(--mute)}
   <section>
     <h2>Datos clave</h2>
     <dl>
-      <dt>Lanzamiento</dt><dd>19 de noviembre de 2026</dd>
+      <dt>Lanzamiento</dt><dd>19 de noviembre de 2026 (ya disponible)</dd>
       <dt>Plataformas</dt><dd>PS5 y Xbox Series X|S (PC sin anunciar)</dd>
       <dt>Ediciones</dt><dd>Standard (79,99 $) y Ultimate (99,99 $, solo digital)</dd>
-      <dt>Precarga</dt><dd>Disponible desde el 10 de noviembre</dd>
+      <dt>Modo online</dt><dd>No al lanzamiento: es solo para un jugador</dd>
+      <dt>Trofeos y logros</dt><dd>55 (platino incluido en PS5; 1.000 G en Xbox)</dd>
       <dt>Espacio necesario</dt><dd>Hasta 212 GB libres, según la consola</dd>
       <dt>Protagonistas</dt><dd>Jason Duval y Lucia Caminos</dd>
       <dt>Ambientación</dt><dd>Estado de Leonida (inspirado en Florida), con Vice City</dd>
@@ -96,7 +97,7 @@ footer a{color:var(--mute)}
 
   <section>
     <h2>Tu checklist</h2>
-    <div id="pct" class="sub">9 objetivos para marcar</div>
+    <div id="pct" class="sub">26 objetivos para marcar</div>
     <div class="bar"><i id="barra"></i></div>
     <p class="sub">Regiones de Leonida, preparativos y coleccionables. Tu progreso se guarda en este navegador.</p>
     <a class="btn" href="./checklist/">Abrir mi checklist</a>
@@ -122,11 +123,15 @@ footer a{color:var(--mute)}
       <li><a href="./faq/#q-cuanto-ocupa">¿Cuánto ocupa?</a></li>
       <li><a href="./faq/#q-que-edicion-compro">¿Qué edición compro?</a></li>
       <li><a href="./faq/#q-la-edicion-fisica-trae-disco">¿La edición física trae disco?</a></li>
+      <li><a href="./faq/#q-gta-vi-tiene-modo-online">¿GTA VI tiene modo online?</a></li>
+      <li><a href="./faq/#q-cuantos-trofeos-y-logros-tiene">¿Cuántos trofeos y logros tiene?</a></li>
+      <li><a href="./faq/#q-cuantos-coleccionables-hay-y-que-hace-falta-para-el-100">¿Cuántos coleccionables hay y qué hace falta para el 100%?</a></li>
+      <li><a href="./faq/#q-hay-parche-del-dia-uno">¿Hay parche del día uno?</a></li>
     </ul>
   </section>
 </main>
 <footer>
-  <p>Actualizado: <time datetime="2026-11-18">18 de noviembre de 2026</time>. Solo publicamos datos confirmados por Rockstar o por varias fuentes fiables.</p>
+  <p>Actualizado: <time datetime="2026-11-19">19 de noviembre de 2026</time>. Solo publicamos datos confirmados por Rockstar o por varias fuentes fiables.</p>
   <p>Web de fans, sin relación con Rockstar Games ni Take-Two. GTA y Grand Theft Auto son marcas de sus propietarios.</p>
   <p>Contamos visitas de forma anónima con GoatCounter, sin cookies.</p>
 </footer>
@@ -143,7 +148,7 @@ footer a{color:var(--mute)}
   }
   tick();
   // Resumen del progreso guardado
-  var ids = ["reg-vice-city","reg-leonida-keys","reg-grassrivers","reg-port-gellhorn","reg-ambrosia","reg-mount-kalaga","pre-espacio","pre-precarga","pre-bonus"], prog = {};
+  var ids = ["reg-vice-city","reg-leonida-keys","reg-grassrivers","reg-port-gellhorn","reg-ambrosia","reg-mount-kalaga","pre-espacio","pre-precarga","pre-bonus","col-cartas","col-flamencos-cocaina","col-waink","col-revistas-libros-comics","col-meditacion","col-descubrimientos-submarinos","col-acrobacias","col-canastas","act-carreras-drones","act-galerias-tiro-oro","act-retos","act-cacerias-bret","act-videojuegos","reg-estilos","reg-vehiculos-escaneados","reg-armas","reg-animales"], prog = {};
   try { prog = JSON.parse(localStorage.getItem("gta6-guia-progreso")) || {}; } catch(e) {}
   var hechos = ids.filter(function(id){ return prog[id]; }).length;
   if (hechos){

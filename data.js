@@ -2,14 +2,15 @@
 // para regenerar las páginas (y haz commit de data.js + los archivos generados).
 // Regla: solo datos confirmados por Rockstar o por varias fuentes fiables. Nada de rumores.
 window.GUIA = {
-  actualizado: "2026-11-18",
+  actualizado: "2026-11-19",
   lanzamiento: "2026-11-19T00:00:00+01:00",
 
   datos: [
-    { k: "Lanzamiento", v: "19 de noviembre de 2026" },
+    { k: "Lanzamiento", v: "19 de noviembre de 2026 (ya disponible)" },
     { k: "Plataformas", v: "PS5 y Xbox Series X|S (PC sin anunciar)" },
     { k: "Ediciones", v: "Standard (79,99 $) y Ultimate (99,99 $, solo digital)" },
-    { k: "Precarga", v: "Disponible desde el 10 de noviembre" },
+    { k: "Modo online", v: "No al lanzamiento: es solo para un jugador" },
+    { k: "Trofeos y logros", v: "55 (platino incluido en PS5; 1.000 G en Xbox)" },
     { k: "Espacio necesario", v: "Hasta 212 GB libres, según la consola" },
     { k: "Protagonistas", v: "Jason Duval y Lucia Caminos" },
     { k: "Ambientación", v: "Estado de Leonida (inspirado en Florida), con Vice City" }
@@ -39,8 +40,30 @@ window.GUIA = {
     },
     {
       cat: "Coleccionables",
-      pendiente: true,
-      items: []
+      items: [
+        { id: "col-cartas", t: "Colecciones de cartas (18 en total)", nota: "para el 100% bastan 15 completas" },
+        { id: "col-flamencos-cocaina", t: "Flamencos de cocaína (125)", nota: "100 para el 100%" },
+        { id: "col-waink", t: "Lugares para fotografiar con WAiNK (100)" },
+        { id: "col-revistas-libros-comics", t: "Revistas, libros y cómics (34)", nota: "30 para el 100%" },
+        { id: "col-meditacion", t: "Puntos de meditación (18)", nota: "15 para el 100%" },
+        { id: "col-descubrimientos-submarinos", t: "Descubrimientos submarinos (33)" },
+        { id: "col-acrobacias", t: "Acrobacias (397)", nota: "300 para el 100%; el trofeo de acrobacias pide 250" },
+        { id: "col-canastas", t: "Canastas de baloncesto (100)", nota: "90 para el 100%" }
+      ]
+    },
+    {
+      cat: "Actividades y registros para el 100%",
+      items: [
+        { id: "act-carreras-drones", t: "Contrarrelojes de dron (42)", nota: "14 lugares con 3 pruebas cada uno" },
+        { id: "act-galerias-tiro-oro", t: "Medallas de oro en las galerías de tiro (42)" },
+        { id: "act-retos", t: "Retos (80)", nota: "70 para el 100%" },
+        { id: "act-cacerias-bret", t: "Encargos de caza de Bret (15)" },
+        { id: "act-videojuegos", t: "Videojuegos dentro del juego (4)" },
+        { id: "reg-estilos", t: "Estilos de pelo, maquillaje y tatuajes (79)", nota: "70 para el 100%" },
+        { id: "reg-vehiculos-escaneados", t: "Modelos de vehículo escaneados (277)", nota: "200 para el 100%" },
+        { id: "reg-armas", t: "Armas registradas (66)", nota: "50 para el 100%" },
+        { id: "reg-animales", t: "Animales estudiados (255)", nota: "100 para el 100%" }
+      ]
     }
   ],
 
@@ -50,7 +73,11 @@ window.GUIA = {
     { q: "¿Sale en PS4 o Xbox One?", a: "No hay versión para PS4 ni Xbox One. En Xbox One solo se podrá jugar en streaming con Xbox Cloud Gaming, con los ajustes gráficos de Xbox Series S.", ver: "requisitos-y-plataformas-gta-6" },
     { q: "¿Cuánto ocupa?", a: "Rockstar pide hasta 212 GB libres, según la consola (PS5 o Xbox Series X|S).", ver: "no-tengo-espacio-para-gta-6" },
     { q: "¿Qué edición compro?", a: "La Standard es el juego completo. La Ultimate (solo digital) añade vehículos, armas y ropa extra. Puedes pasar de Standard a Ultimate más adelante con una mejora." },
-    { q: "¿La edición física trae disco?", a: "No: la versión física es un código de descarga dentro de la caja." }
+    { q: "¿La edición física trae disco?", a: "No: la versión física es un código de descarga dentro de la caja." },
+    { q: "¿GTA VI tiene modo online?", a: "No al lanzamiento: GTA VI sale como juego para un jugador, y Rockstar no ha dado fecha para un modo online. GTA Online sigue funcionando dentro de GTA V." },
+    { q: "¿Cuántos trofeos y logros tiene?", a: "55: en PS5 son 1 platino, 2 de oro, 6 de plata y 46 de bronce; en Xbox suman 1.000 G. Muchos están ligados a la historia y vienen ocultos para no hacer spoilers." },
+    { q: "¿Cuántos coleccionables hay y qué hace falta para el 100%?", a: "Hay 18 colecciones de cartas, 125 flamencos de cocaína, 100 lugares para WAiNK, 34 revistas, libros y cómics, 18 puntos de meditación, 33 descubrimientos submarinos, 397 acrobacias y 100 canastas. Para el 100% no hace falta todo (por ejemplo, 15 colecciones de cartas o 100 flamencos): lo tienes desglosado en la checklist." },
+    { q: "¿Hay parche del día uno?", a: "Sí. Antes del lanzamiento llegaron dos actualizaciones obligatorias: la 1.002.000 (13 de noviembre) y la 1.002.001 (16 de noviembre), de alrededor de 1-2 GB según la consola. Rockstar no ha publicado notas del parche." }
   ],
   // En faq, "ver" (opcional) es el slug de una respuesta de /respuestas/ con más detalle.
 
